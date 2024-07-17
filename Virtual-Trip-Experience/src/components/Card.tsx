@@ -52,6 +52,7 @@ export default function Card({ data , onClicked}: CardProp) {
             alt="Sunset in the mountains"
             width={400}
             height={400}
+            className="sm:h-full sm:w-4/5 h-3/4 w-30"
           />
            </motion.div>
            

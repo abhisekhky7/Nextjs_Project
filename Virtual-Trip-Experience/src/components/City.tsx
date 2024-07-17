@@ -8,7 +8,6 @@ import { CityContext } from "@/app/page";
 export default function City(){
 
 const cityName = useContext(CityContext)
-console.log(cityName?.lat)
   const containerStyle = {
     height: "100%",
     width: "100%"

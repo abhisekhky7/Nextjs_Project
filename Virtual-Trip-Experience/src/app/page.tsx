@@ -7,55 +7,64 @@ import { createContext, useState } from "react";
 import City from "@/components/City";
 import { LoadScript } from "@react-google-maps/api";
 
-
 type cityProp = {
-    lat:number|null,
-    lng:number|null
-}
-export const CityContext = createContext<cityProp|null>(null)
-
+  lat: number | null;
+  lng: number | null;
+};
+export const CityContext = createContext<cityProp | null>(null);
 
 export default function Home() {
   const key = process.env.my_key as string;
 
   const [selectedId, setId] = useState<string | null>(null);
-  const [cityName, setCity] = useState<cityProp | null>(null)
-  
+  const [cityName, setCity] = useState<cityProp | null>(null);
 
-
-  const callme = (name: string,cord:{lat:number,lng:number}) => {
+  const callme = (name: string, cord: { lat: number; lng: number }) => {
     setId(name);
-    const newCord ={cord}
-    setCity({lat:cord.lat,lng:cord.lng})
-
-
+    const newCord = { cord };
+    setCity({ lat: cord.lat, lng: cord.lng });
   };
 
-  const closeme = () => {
+  const closeme = (e: React.MouseEvent<HTMLDivElement>) => {
+    const divName = e.currentTarget.getAttribute("id");
+
+    if (divName === "svBox") {
+      e.stopPropagation();
+      return;
+    }
     if (selectedId) setId(null);
-    if (cityName)setCity(null)
+    if (cityName) setCity(null);
+  };
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    alert("Its a work in progress...");
   };
 
   return (
-    <div className="flex " >
-    
+    <div className="flex " onClick={(e) => closeme(e)}>
       <div>
         <header className=" sticky top-0 bg-black z-40 ">
           <div className="myborder justify-center flex p-3   ">
-            <h1 className={`${anta.className} `} id="title">
+            <h1
+              className={`${anta.className}  text-3xl md:text-5xl`}
+              id="title"
+            >
               Welcome To Virtual Tour
             </h1>
           </div>
         </header>
-        <div className="myborder" onClick={() => closeme()}>
+        <div className="myborder">
           <div className="m-20 myborder flex justify-center ">
-           <form  onSubmit={()=>alert("Its a work in progress...")}> <input
-              type="text"
-              className={`myborder text-black text-center p-1 text-xl capitalize ${anta.className}`}
-              name="city"
-              placeholder="Enter City Name"
-            /> 
-            <button className="myborder text-white m-1">Search</button>
+            <form onSubmit={(e) => handleSubmit(e)}>
+              {" "}
+              <input
+                type="text"
+                className={`myborder text-black text-center p-1 text-xl capitalize ${anta.className}`}
+                name="city"
+                placeholder="Enter City Name"
+              />
+              <button className="myborder text-white m-1">Search</button>
             </form>
           </div>
 
@@ -63,24 +72,24 @@ export default function Home() {
             {data.map((item, ind) => (
               <Card data={item} key={ind} onClicked={callme} />
             ))}
-
           </motion.div>
-
         </div>
-
       </div>
-               <LoadScript googleMapsApiKey={key} libraries={["places"]}>
-      <AnimatePresence>
-        {selectedId && (
-          <motion.div  className="myborder mytest">
-
+      <LoadScript googleMapsApiKey={key} libraries={["places"]}>
+        <AnimatePresence>
+          {selectedId && (
+            <motion.div
+              className="myborder mytest"
+              onClick={(e) => closeme(e)}
+              id="svBox"
+            >
               <CityContext.Provider value={cityName}>
-              <City />
+                <City />
               </CityContext.Provider>
-          </motion.div>
-        )}
-      </AnimatePresence>
-               </LoadScript>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </LoadScript>
     </div>
   );
 }

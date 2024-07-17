@@ -15,8 +15,8 @@ const data = [
         name: "Great Wall of China",
         location: "China",
         coordinates: {
-          lat: 40.4324,
-          lng: 116.5723,
+          lat: 40.44052262,
+          lng: 116.56019026,
         },
         description:
           "An ancient series of fortifications made of stone, brick, wood, and earth.",
@@ -48,8 +48,8 @@ const data = [
         name: "Machu Picchu",
         location: "Urubamba Valley, Peru",
         coordinates: {
-          lat: -13.0003,
-          lng: -72.5417,
+          lat: -13.1635411,
+          lng: -72.544907,
         },
         description:
           "An ancient Inca citadel set high in the Andes Mountains, known for its intricate stonework.",
@@ -81,8 +81,8 @@ const data = [
         name: "Great Pyramid of Giza",
         location: "Giza Necropolis, Egypt",
         coordinates: {
-          lat: 29.9792,
-          lng: 31.1345,
+          lat: 29.9738847,
+          lng: 31.1288953,
         },
         description:
           "The oldest of the Seven Wonders of the Ancient World and the only one to remain largely intact.",
