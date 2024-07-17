@@ -1,7 +1,7 @@
 "use client";
 import Card from "@/components/Card";
 import data from "@/database/db";
-import { anta, caveat, dancing } from "@/components/font";
+import { anta } from "@/components/font";
 import { AnimatePresence, motion } from "framer-motion";
 import { createContext, useState } from "react";
 import City from "@/components/City";
@@ -45,7 +45,7 @@ export default function Home() {
     <div className="flex " onClick={(e) => closeme(e)}>
       <div>
         <header className=" sticky top-0 bg-black z-40 ">
-          <div className="myborder justify-center flex p-3   ">
+          <div className=" justify-center flex p-3   ">
             <h1
               className={`${anta.className}  text-3xl md:text-5xl`}
               id="title"
@@ -54,17 +54,17 @@ export default function Home() {
             </h1>
           </div>
         </header>
-        <div className="myborder">
-          <div className="m-20 myborder flex justify-center ">
+        <div className="">
+          <div className="m-20  flex justify-center ">
             <form onSubmit={(e) => handleSubmit(e)}>
               {" "}
               <input
                 type="text"
-                className={`myborder text-black text-center p-1 text-xl capitalize ${anta.className}`}
+                className={` text-black text-center p-1 text-xl capitalize ${anta.className}`}
                 name="city"
                 placeholder="Enter City Name"
               />
-              <button className="myborder text-white m-1">Search</button>
+              <button className=" text-white m-1">Search</button>
             </form>
           </div>
 
@@ -79,7 +79,7 @@ export default function Home() {
         <AnimatePresence>
           {selectedId && (
             <motion.div
-              className="myborder mytest"
+              className=" mytest"
               onClick={(e) => closeme(e)}
               id="svBox"
             >

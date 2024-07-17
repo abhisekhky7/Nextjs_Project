@@ -41,12 +41,12 @@ export default function HoverButton() {
         whileTap={{scale:0.7}}
         initial="default"
         animate="default"
-        className="hoverButton myborder m-1 p-1"
+        className="hoverButton  m-1 p-1"
       >
         <motion.p variants={textVariants} className="hoverButtonText  ">
           Virtual Tour
         </motion.p>
-        <motion.svg viewBox="0 0 100 10" xmlns="http://www.w3.org/2000/svg" className="myborder">
+        <motion.svg viewBox="0 0 100 10" xmlns="http://www.w3.org/2000/svg" className="">
           <motion.path
             variants={outlineVariants}
             strokeWidth="1"
