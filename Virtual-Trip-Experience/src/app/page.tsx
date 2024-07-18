@@ -1,17 +1,25 @@
 "use client";
 import Card from "@/components/Card";
 import data from "@/database/db";
-import { anta } from "@/components/font";
 import { AnimatePresence, motion } from "framer-motion";
-import { createContext, useState } from "react";
+import {useState } from "react";
 import City from "@/components/City";
 import { LoadScript } from "@react-google-maps/api";
 import {  cityContext } from "@/components/cityContext";
+// import { anta } from "@/components/font";
+import { Anta } from "next/font/google";
 
 type cityProp = {
   lat: number | null;
   lng: number | null;
 };
+
+const anta = Anta({
+  subsets:["latin"],
+  weight:["400"],
+  display: 'swap',  
+  style: 'normal',  
+   })
 
 export default function Home() {
   const key = process.env.my_key as string;

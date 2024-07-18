@@ -11,21 +11,26 @@ export default function City() {
     width: "100%",
   };
 
-  const center = {
-    lat: cityName?.lat,
-    lng: cityName?.lng,
+  const center = cityName?.lat && cityName?.lng
+  ? { lat: cityName.lat, lng: cityName.lng }
+  : null;
+
+  const streetViewOptions: google.maps.StreetViewPanoramaOptions = {
+    position: center, // Set position based on center
+    visible: true, // Make it visible
+    // Add other options as needed (refer to Google Maps API documentation)
   };
+
 
   return (
     <div className="flex w-full h-full">
+      {center && (
       <GoogleMap mapContainerStyle={containerStyle} center={center} zoom={10}>
-        <StreetViewPanorama
-          id="street-view"
-          mapContainerStyle={containerStyle}
-          position={center}
-          visible={true}
+        <StreetViewPanorama options={streetViewOptions}
         />
-      </GoogleMap>
+      </GoogleMap>)}
     </div>
+  
+  
   );
 }
