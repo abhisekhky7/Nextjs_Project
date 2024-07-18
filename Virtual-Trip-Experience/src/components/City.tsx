@@ -1,11 +1,11 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { GoogleMap, StreetViewPanorama } from "@react-google-maps/api";
 import { useContext } from "react";
-import { CityContext } from "@/app/page";
+import { cityContext } from "@/components/cityContext";
 
 export default function City() {
-  const cityName = useContext(CityContext);
+  const cityName = useContext(cityContext);
   const containerStyle = {
     height: "100%",
     width: "100%",

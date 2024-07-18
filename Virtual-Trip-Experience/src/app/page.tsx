@@ -6,15 +6,18 @@ import { AnimatePresence, motion } from "framer-motion";
 import { createContext, useState } from "react";
 import City from "@/components/City";
 import { LoadScript } from "@react-google-maps/api";
+import {  cityContext } from "@/components/cityContext";
 
 type cityProp = {
   lat: number | null;
   lng: number | null;
 };
-export const CityContext = createContext<cityProp | null>(null);
 
 export default function Home() {
   const key = process.env.my_key as string;
+
+ 
+   const CityContext = cityContext;
 
   const [selectedId, setId] = useState<string | null>(null);
   const [cityName, setCity] = useState<cityProp | null>(null);

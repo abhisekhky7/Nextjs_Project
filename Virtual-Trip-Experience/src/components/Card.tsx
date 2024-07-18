@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { caveat } from "./font";
-import {AnimatePresence, motion} from 'framer-motion'
+import {motion} from 'framer-motion'
 import HoverButton from "@/components/Hover"
 import { createContext, useState } from "react";
 
