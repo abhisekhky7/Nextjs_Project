@@ -1,1 +1,1 @@
-#Virtual Trip
+Nextjs projects
