@@ -20,7 +20,7 @@ const data = [
         },
         description:
           "An ancient series of fortifications made of stone, brick, wood, and earth.",
-        img:"https://lh3.googleusercontent.com/ci/AL18g_QIjhQ0y4M6dsA9ryWkPvHhd2uLZ4YJ8dJfkvuexBZTP5-Tzi52UFrvHmI6m_IlR9ETO3kGql0=w1200-h310-pp-rw-v1"
+        img:"https://cdn.britannica.com/89/179589-138-3EE27C94/Overview-Great-Wall-of-China.jpg?w=800&h=450&c=crop"
       },
        {
         name: "Christ the Redeemer",
